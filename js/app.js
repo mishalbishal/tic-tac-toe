@@ -35,6 +35,11 @@ function App(stageId) {
 			app.messageElem = document.createElement("div");
 			app.elem.appendChild(app.messageElem);
 
+			app.restartElem = document.createElement("button");
+			app.restartElem.textContent = "Restart";
+			app.elem.appendChild(app.restartElem);
+			app.restartElem.addEventListener("click", app.restartGame);
+
 			for (var i = 0; i < app.model.length; i++) {
 				var line = document.createElement("p");
 				line.className = "tttapp-line";
@@ -132,6 +137,10 @@ function App(stageId) {
 	app.drawMessage = function() {
 		app.showMessage("Stalemate!");
 	};
+
+	app.restartGame = function(event) {
+		window.location.reload()
+	}
 
 	app.onClickHandler = function(event) {
 		var i = this.dataset.iValue;
